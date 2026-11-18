@@ -56,7 +56,7 @@ class PosCloudBuilderTest extends AbstractAdyenTestCase
         $pointOfSaleMock = $this->createMock(PointOfSale::class);
         $pointOfSaleMock->expects($this->once())
             ->method('addSaleToAcquirerData')
-            ->with($this->isArray(), $orderMock)
+            ->with($this->callback('is_array'), $orderMock)
             ->willReturn($expectedBody);
 
         $buildSubject = [
